@@ -1,0 +1,15 @@
+﻿@page "{id}/{handler?}"
+@model NewsPageModel
+@{
+    ViewData["Title"] = Model.Item.Title;
+}
+
+
+<h2>@Model.Item.Title</h2>
+<h4>Likes: @Model.Item.Likes </h4>
+<form method="post">
+    <input type="hidden" name="id" value="@Model.Item.Id"/>
+    <input type="submit" asp-page-handler="Like" class="btn btn-primary" value="I like it!"/>
+</form>
+
+<p>@Model.Item.Content</p>
